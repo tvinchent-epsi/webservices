@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch WS</title>
+</head>
+<body>
+    <script>
+            const apiKey = 'da6153fa7589cdd5ae0121501c4193b4';
+            const ville = 'Lille';
+
+            const url = `http://api.openweathermap.org/data/2.5/weather?q=${ville}&appid=${apiKey}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(`La température à ${data.name} est de ${Math.round(data.main.temp - 273.15)}°C.`);
+                })
+                .catch(error => console.error('Une erreur est survenue : ', error));
+
+    </script>
+</body>
+</html>
